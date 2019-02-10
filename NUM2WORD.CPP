@@ -1,7 +1,7 @@
 #include<iostream>
 #include<conio.h>
 
-void expand(long long number)
+void expandNum(long long number)
 {
 	char tens[10][10]={"","ten ","twenty ","thirty ","fourty ","fifty ","sixty ","seventy ","eighty ","ninety "};
 	char ones[20][15]={"","one ","two ","three ","four ","five ","six ","seven ","eight ","nine ","ten ","eleven ","twelve ","thirteen ","fourteen ","fifteen ","sixteen ","seventeen ","eighteen ","nineteen "};
@@ -9,36 +9,36 @@ void expand(long long number)
 	if(number<0)
 	{
 		std::cout<<"minus ";
-		expand(-number);
+		expandNum(-number);
 	}
 	else if (number>=10000000)
 	{
-		expand(number/10000000);
+		expandNum(number/10000000);
 		std::cout<<"crore ";
-		expand(number%10000000);
+		expandNum(number%10000000);
 	}
 	else if (number>=100000)
 	{
-		expand(number/100000);
+		expandNum(number/100000);
 		std::cout<<"lacs ";
-		expand(number%100000);
+		expandNum(number%100000);
 	}
 	else if(number>=1000)
 	{
-		expand(number/1000);
+		expandNum(number/1000);
 		std::cout<<"thousand ";
-		expand(number%1000);
+		expandNum(number%1000);
 	}
 	else if(number>=100)
 	{
-		expand(number/100);
+		expandNum(number/100);
 		std::cout<<"hundred ";
-		expand(number%100);
+		expandNum(number%100);
 	}
 	else if(number>=20)
 	{
 		std::cout<<tens[number/10];
-		expand(number%10);
+		expandNum(number%10);
 	}
 	else
 		std::cout<<ones[number];
@@ -58,7 +58,7 @@ int main()
 		std::cout<<"Zero only"<<std::endl;
 	else
 	{
-		expand(number);
+		expandNum(number);
 		std::cout<<"only"<<std::endl;
 	}
 	std::cout<<std::endl<<"Press Y to get another result: ";
